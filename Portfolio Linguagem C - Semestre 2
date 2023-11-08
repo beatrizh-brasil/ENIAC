@@ -1,0 +1,63 @@
+/** Portfólio com a proposta: Criar um programa que receba os dados de cada tipo de animal cadastrado no
+zoológico, à quantidade de animais da espécie e o programa deve calcular a quantidade
+(kilos) de comida para cada tipo de animal por dia e por mês e o preço estimado por
+kilo. **/
+
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char tipo_animal[50];
+    int quantidade_animais;
+    
+    printf("Tipo de Animal: ");
+    scanf("%s", tipo_animal);
+    printf("Quantidade de animais: ");
+    scanf("%d", &quantidade_animais);
+
+    float custo_por_kilo = 0.0;  
+
+    
+    if (strcmp(tipo_animal, "Onça") == 0) {
+        custo_por_kilo = 50.0;
+    } else if (strcmp(tipo_animal, "Girafa") == 0) {
+        custo_por_kilo = 70.0;
+    } else if (strcmp(tipo_animal, "Gorila") == 0) {
+        custo_por_kilo = 60.0;
+    } else if (strcmp(tipo_animal, "Macaco") == 0) {
+        custo_por_kilo = 50.0;
+    } else if (strcmp(tipo_animal, "Pato") == 0) {
+        custo_por_kilo = 40.0;
+    } else if (strcmp(tipo_animal, "Lhama") == 0) {
+        custo_por_kilo = 70.0;
+    } else {
+        printf("Animal não encontrado na tabela de consumo.\n");
+        return 1;
+    }
+
+    int consumo_por_dia = 0;
+
+    if (strcmp(tipo_animal, "Onça") == 0) {
+        consumo_por_dia = 20 * quantidade_animais;
+    } else if (strcmp(tipo_animal, "Girafa") == 0) {
+        consumo_por_dia = 35 * quantidade_animais;
+    } else if (strcmp(tipo_animal, "Gorila") == 0) {
+        consumo_por_dia = 20 * quantidade_animais;
+    } else if (strcmp(tipo_animal, "Macaco") == 0) {
+        consumo_por_dia = 5 * quantidade_animais;
+    } else if (strcmp(tipo_animal, "Pato") == 0) {
+        consumo_por_dia = 3 * quantidade_animais;
+    } else if (strcmp(tipo_animal, "Lhama") == 0) {
+        consumo_por_dia = 15 * quantidade_animais;
+    }
+
+    int consumo_por_mes = consumo_por_dia * 30;
+    float custo_por_mes = consumo_por_mes * custo_por_kilo;
+
+    printf("- Quantidade por de kilo por animal: %d\n", consumo_por_dia / quantidade_animais);
+    printf("- Quantidade por dia: %d\n", consumo_por_dia);
+    printf("- Quantidade por mês: %d\n", consumo_por_mes);
+    printf("- Custo estimado por mês: R$ %.2f\n", custo_por_mes);
+
+    return 0;
+}
